@@ -106,7 +106,7 @@
 //             reversed = reversed * 10 + temp % 10;
 //             temp /= 10;
 //         }
-        
+
 //     }
 //     else 
 //     {
@@ -117,3 +117,167 @@
 
 // }
 // System.Console.WriteLine(IsPalindrome(123222));
+
+// Задача 32: Напишите программу замена элементов массива: положительные элементы замените на соответствующие отрицательные, и наоборот.
+// [-4, -8, 8, 2] -> [4, 8, -8, -2] 
+// Задача 33: Задайте массив. Напишите программу, которая определяет, присутствует ли заданное число в массиве.
+// 4; массив [6, 7, 19, 345, 3] -> нет
+// -3; массив [6, 7, 19, 345, 3] -> да
+
+
+
+// void FillArray(int[] array)
+// {
+//     for (int i = 0; i < array.Length; i++)
+//         array[i] = new Random().Next(-9,10);
+// }
+
+// void PrintArray(int[] array)
+// {
+//     foreach (int item in array)
+//         System.Console.Write($"{item} ");
+//     System.Console.WriteLine();
+// }
+
+// void Ineverse(int[] array)
+// {
+//     for(int i = 0; i < array.Length; i++ )
+//     {
+//         array[i] = -array[i];
+//     }
+// }
+
+// int[] array = new int[10];
+
+// FillArray(array);
+// PrintArray(array);
+// Ineverse(array);
+// PrintArray(array);
+
+
+
+// Задача 35: Задайте одномерный массив из 15 случайных чисел в диапазоне от -100 до 100. Найдите количество элементов массива, значения которых лежат в отрезке [10,99]. 
+// Пример для массива из 5, а не 15 элементов. В своём решении сделайте для 15
+// [5, 18, 123, 6, 2] -> 1
+// [1, 2, 3, 6, 2] -> 0
+// [10, 11, 12, 13, 14] -> 5
+
+
+
+// void FillArray(int[] array)
+// {
+//     for (int i = 0; i < array.Length; i++)
+//         array[i] = new Random().Next(-100,100);
+// }
+
+// void PrintArray(int[] array)
+// {
+//     foreach (int item in array)
+//         System.Console.Write($"{item} ");
+//     System.Console.WriteLine();
+// }
+
+// int FindNumbers(int[] array)
+// {
+//     int result = 0;
+//     for (int i = 0; i < array.Length; i++)
+//     {
+//         if(array[i]<=99 && array[i]>=10)
+//         {
+//             result++;
+//         }
+//     }
+//     return result;
+// }
+
+// int[] array = new int[15];
+// FillArray(array);
+// PrintArray(array);
+// System.Console.WriteLine(FindNumbers(array));
+
+
+// Задача 40: Напишите программу, которая принимает на вход три числа и
+// проверяет, может ли существовать треугольник с сторонами такой длины.
+// Теорема о неравенстве треугольника: каждая сторона треугольника
+// меньше суммы двух других сторон
+// 10:21
+
+// bool Triangle(int a, int b, int c)
+// {
+//     bool result = false;
+//     if(a<(b+c) && b<(a+c) && c<(a+b))
+//         result = true;
+//     // int perimeter = a + b + c;
+//     // System.Console.WriteLine($"Периметр треугольника равен: {perimeter}");
+//     // if((a*a) == (b*b)+(c*c) || (b*b) == (a*a) + (c*c) || (c*c) == (b*b) + (a*a))
+//     // {
+//     //     System.Console.WriteLine("Треугольник является прямоугольным");
+//     // }
+//     return result;
+
+// }
+
+// System.Console.WriteLine("Введите сторону треугольника a");
+// int a = Convert.ToInt32(Console.ReadLine() );
+// System.Console.WriteLine("Введите сторону треугольника b");
+// int b = Convert.ToInt32(Console.ReadLine() );
+// System.Console.WriteLine("Введите сторону треугольника c");
+// int c = Convert.ToInt32(Console.ReadLine() );
+// System.Console.WriteLine(Triangle(a, b, c));
+
+
+
+
+// Задача 42: Напишите программу, которая будет преобразовывать
+// десятичное число в двоичное.
+// 45 -> 101101
+// 3 -> 11
+// 2 -> 10
+
+// string Binare(int number)
+// {
+//     string result = "";
+//     while(number > 0)
+//     {
+//         result =  (number % 2) + result;
+//         number /= 2;
+//     }
+//     return result;
+// }
+
+// System.Console.WriteLine("Введите число");
+// int num = Convert.ToInt32(Console.ReadLine() );
+// System.Console.WriteLine(Binare(num));
+
+// 5. Задайте число. Составьте список чисел Фибоначчи, в том числе для отрицательных индексов.
+    
+//     *Пример:*
+    
+//     - для k = 8 список будет выглядеть так: [-21 ,13, -8, 5, −3, 2, −1, 1, 0, 1, 1, 2, 3, 5, 8, 13, 21] [Негафибоначчи]
+
+
+int[] Fibonacci(int n)
+{
+    int[] result = new int[n*2-1];
+    result[result.Length/2] = 0;
+    result[result.Length/2+1] = 1;
+    result[result.Length/2-1] = 1;
+
+        for (int i = 2; i < n; i++)
+        {
+            result[result.Length/2+i] = result[i+result.Length/2-1] + result[i+result.Length/2-2];
+            result[result.Length/2-i] = -(result[i+result.Length/2-1] + result[i+result.Length/2-2]);
+        }
+    return result;
+}
+
+void PrintArray(int[] array)
+{
+    foreach (int item in array)
+        System.Console.Write($"{item} ");
+    System.Console.WriteLine();
+}
+
+System.Console.WriteLine("Введите число N");
+int num = Convert.ToInt32(Console.ReadLine() );
+PrintArray(Fibonacci(num));
