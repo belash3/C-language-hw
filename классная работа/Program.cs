@@ -1,4 +1,4 @@
-﻿// // See https://aka.ms/new-console-template for more information
+// // See https://aka.ms/new-console-template for more information
 
 // Напишите программу, которая принимает на вход координаты двух 
 // точек и находит расстояние между ними в 2D пространстве.
@@ -277,7 +277,3 @@ void PrintArray(int[] array)
         System.Console.Write($"{item} ");
     System.Console.WriteLine();
 }
-
-System.Console.WriteLine("Введите число N");
-int num = Convert.ToInt32(Console.ReadLine() );
-PrintArray(Fibonacci(num));
