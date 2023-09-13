@@ -1,4 +1,4 @@
-// // See https://aka.ms/new-console-template for more information
+﻿// // See https://aka.ms/new-console-template for more information
 
 // Напишите программу, которая принимает на вход координаты двух 
 // точек и находит расстояние между ними в 2D пространстве.
@@ -250,30 +250,427 @@
 // System.Console.WriteLine(Binare(num));
 
 // 5. Задайте число. Составьте список чисел Фибоначчи, в том числе для отрицательных индексов.
-    
+
 //     *Пример:*
-    
+
 //     - для k = 8 список будет выглядеть так: [-21 ,13, -8, 5, −3, 2, −1, 1, 0, 1, 1, 2, 3, 5, 8, 13, 21] [Негафибоначчи]
 
 
-int[] Fibonacci(int n)
-{
-    int[] result = new int[n*2-1];
-    result[result.Length/2] = 0;
-    result[result.Length/2+1] = 1;
-    result[result.Length/2-1] = 1;
+// int[] Fibonacci(int n)
+// {
+//     int[] result = new int[n*2-1];
+//     result[result.Length/2] = 0;
+//     result[result.Length/2+1] = 1;
+//     result[result.Length/2-1] = 1;
 
-        for (int i = 2; i < n; i++)
-        {
-            result[result.Length/2+i] = result[i+result.Length/2-1] + result[i+result.Length/2-2];
-            result[result.Length/2-i] = -(result[i+result.Length/2-1] + result[i+result.Length/2-2]);
-        }
-    return result;
-}
+//         for (int i = 2; i < n; i++)
+//         {
+//             result[result.Length/2+i] = result[i+result.Length/2-1] + result[i+result.Length/2-2];
+//             result[result.Length/2-i] = -(result[i+result.Length/2-1] + result[i+result.Length/2-2]);
+//         }
+//     return result;
+// }
 
-void PrintArray(int[] array)
-{
-    foreach (int item in array)
-        System.Console.Write($"{item} ");
-    System.Console.WriteLine();
-}
+// void PrintArray(int[] array)
+// {
+//     foreach (int item in array)
+//         System.Console.Write($"{item} ");
+//     System.Console.WriteLine();
+// }
+
+// System.Console.WriteLine("Введите число N");
+// int num = Convert.ToInt32(Console.ReadLine() );
+// PrintArray(Fibonacci(num));
+
+
+// Задача 48: Задайте двумерный массив размера m на n,
+// каждый элемент в массиве находится по формуле: Aₘₙ = m+n.
+// Выведите полученный массив на экран.
+// m = 3, n = 4.
+// 0 1 2 3
+// 1 2 3 4
+// 2 3 4 5
+
+// void FillArray(int[,] array)
+// {
+//     for (int i = 0; i < array.GetLength(0); i++)
+//         for (int j = 0; j < array.GetLength(1); j++)
+//             array[i,j] = i+j;
+// }
+
+// void PrintArray(int[,] array)
+// {
+//     for (int i = 0; i < array.GetLength(0); i++)
+//         {
+//         for (int j = 0; j < array.GetLength(1); j++)
+//             System.Console.Write($"{array[i,j],3}    ");
+//         System.Console.WriteLine();
+//         }
+// }
+
+
+// System.Console.WriteLine("Введите количество строк:");
+// int rows = Convert.ToInt32(Console.ReadLine());
+// System.Console.WriteLine("Введите количество столбцов:");
+// int cols = Convert.ToInt32(Console.ReadLine());
+// int[,] array = new int[rows, cols];
+// FillArray(array);
+// PrintArray(array);
+
+
+// Задача 49: Задайте двумерный массив. Найдите элементы, у
+// которых оба индекса нечётные, и замените эти элементы на их
+// квадраты.
+// Например, изначально массив
+// выглядел вот так:
+// 1 4 7 2
+// 5 9 2 3
+// 8 4 2 4
+// Новый массив будет выглядеть
+// вот так:
+// 1 4 7 2
+// 5 81 2 9
+// 8 4 2 4
+
+
+// void FillArray(int[,] array)
+// {
+//     for (int i = 0; i < array.GetLength(0); i++)
+//         for (int j = 0; j < array.GetLength(1); j++)
+//             array[i, j] = new Random().Next(1, 10);
+// }
+
+// void PrintArray(int[,] array)
+// {
+//     for (int i = 0; i < array.GetLength(0); i++)
+//     {
+//         for (int j = 0; j < array.GetLength(1); j++)
+//             System.Console.Write($"{array[i, j],3}    ");
+//         System.Console.WriteLine();
+//     }
+// }
+
+// void Exponent(int[,] array)
+// {
+//     for (int i = 1; i < array.GetLength(0); i += 2)
+//     {
+//         for (int j = 1; j < array.GetLength(1); j += 2)
+//             array[i, j] *= array[i, j];
+
+//     }
+// }
+
+
+// System.Console.WriteLine("Введите количество строк:");
+// int rows = Convert.ToInt32(Console.ReadLine());
+// System.Console.WriteLine("Введите количество столбцов:");
+// int cols = Convert.ToInt32(Console.ReadLine());
+
+// int[,] array = new int[rows, cols];
+// FillArray(array);
+// PrintArray(array);
+// System.Console.WriteLine();
+// Exponent(array);
+// PrintArray(array);
+
+// Задача 51: Задайте двумерный массив. Найдите сумму
+// элементов, находящихся на главной диагонали (с индексами
+// (0,0); (1;1) и т.д.
+// Например, задан массив:
+// 1 4 7 2
+// 5 9 2 3
+// 8 4 2 4
+// Сумма элементов главной диагонали: 1+9+2 = 12
+
+
+
+// void FillArray(int[,] array)
+// {
+//     for (int i = 0; i < array.GetLength(0); i++)
+//         for (int j = 0; j < array.GetLength(1); j++)
+//             array[i, j] = new Random().Next(1, 10);
+// }
+
+// void PrintArray(int[,] array)
+// {
+//     for (int i = 0; i < array.GetLength(0); i++)
+//     {
+//         for (int j = 0; j < array.GetLength(1); j++)
+//             System.Console.Write($"{array[i, j],3}    ");
+//         System.Console.WriteLine();
+//     }
+// }
+
+// int SumOfStraightDiagonal(int[,] array)
+// {
+//     int result = 0;
+//     for (int i = 0; i < array.GetLength(0); i++)
+//     {
+//         result += array[i, i];
+//     }
+//     return result;
+// }
+
+// int SumOfReverseDiagonal(int[,] array)
+// {
+//     int result = 0;
+//     for (int i = 0; i < array.GetLength(0); i++)
+//     {
+//         result += array[array.GetLength(0) - 1 - i , i];
+//     }
+
+//     return result;
+// }
+
+// System.Console.WriteLine("Введите количество строк:");
+// int rows = Convert.ToInt32(Console.ReadLine());
+// System.Console.WriteLine("Введите количество столбцов:");
+// int cols = Convert.ToInt32(Console.ReadLine());
+
+// int[,] array = new int[rows, cols];
+// FillArray(array);
+// PrintArray(array);
+// System.Console.WriteLine(SumOfStraightDiagonal(array));
+// System.Console.WriteLine(SumOfReverseDiagonal(array));
+
+// **Задача HARD SORT.**
+
+// Задайте двумерный массив из целых чисел. Количество строк и столбцов задается с клавиатуры. Отсортировать элементы по возрастанию слева направо и сверху вниз.
+
+// Например, задан массив:
+// 1 4 7 2
+// 5 9 10 3
+
+// После сортировки
+// 1 2 3 4
+// 5 7 9 10
+
+// void FillArray(int[,] array)
+// {
+//     for (int i = 0; i < array.GetLength(0); i++)
+//         for (int j = 0; j < array.GetLength(1); j++)
+//             array[i, j] = new Random().Next(1, 100);
+// }
+
+// void PrintArray(int[,] array)
+// {
+//     for (int i = 0; i < array.GetLength(0); i++)
+//     {
+//         for (int j = 0; j < array.GetLength(1); j++)
+//             System.Console.Write($"{array[i, j],3} ");
+//         System.Console.WriteLine();
+//     }
+// }
+
+// void SortArray(int[,] array)
+// {
+//     int[] tempArray = new int[array.GetLength(0) * array.GetLength(1)];
+//     int index = 0;
+
+//     foreach (int number in array)
+//     {
+//         tempArray[index] = number;
+//         index++;
+//     }
+
+
+//     int temp;
+//     for (int i = 0; i < tempArray.Length; i++)
+//     {
+//         for (int j = 0; j < tempArray.Length - 1 - i; j++)
+//         {
+//             if (tempArray[j] > tempArray[j + 1])
+//             {
+//                 temp = tempArray[j];
+//                 tempArray[j] = tempArray[j + 1];
+//                 tempArray[j + 1] = temp;
+//             }
+//         }
+//     }
+
+//     index = 0;
+//     for (int i = 0; i < array.GetLength(0); i++)
+//     {
+//         for (int j = 0; j < array.GetLength(1); j++)
+//         {
+//             array[i, j] = tempArray[index];
+//             index ++;
+//         }
+//     }
+
+// }
+
+// System.Console.WriteLine("Введите количество строк:");
+// int rows = Convert.ToInt32(Console.ReadLine());
+// System.Console.WriteLine("Введите количество столбцов:");
+// int cols = Convert.ToInt32(Console.ReadLine());
+
+// int[,] array = new int[rows, cols];
+// FillArray(array);
+// PrintArray(array);
+// SortArray(array);
+// System.Console.WriteLine();
+// PrintArray(array);
+
+
+// Задача 53: Задайте двумерный массив. Напишите программу,
+// которая поменяет местами первую и последнюю строку
+// массива.
+
+
+
+// void FillArray(int[,] array)
+// {
+//     for (int i = 0; i < array.GetLength(0); i++)
+//         for (int j = 0; j < array.GetLength(1); j++)
+//             array[i, j] = new Random().Next(10, 100);
+// }
+
+// void PrintArray(int[,] array)
+// {
+//     for (int i = 0; i < array.GetLength(0); i++)
+//     {
+//         for (int j = 0; j < array.GetLength(1); j++)
+//             System.Console.Write($"{array[i, j],3}    ");
+//         System.Console.WriteLine();
+//     }
+// }
+
+// void ReverseRows(int[,] array)
+// {
+//     int [] buffRow = new int[array.GetLength(0)];
+//     for (int i = 0; i < array.GetLength(1); i++)
+//     {
+//         buffRow[i] = array[0, i];
+//         array[0, i] = array[array.GetLength(0)-1, i];
+//         array[array.GetLength(0)-1, i] = buffRow[i];
+//     }
+// }
+
+// System.Console.WriteLine("Введите количество строк:");
+// int rows = Convert.ToInt32(Console.ReadLine());
+// System.Console.WriteLine("Введите количество столбцов:");
+// int cols = Convert.ToInt32(Console.ReadLine());
+
+
+// int[,] array = new int[rows, cols];
+
+// FillArray(array);
+// PrintArray(array);
+// System.Console.WriteLine();
+// ReverseRows(array);
+// PrintArray(array);
+
+
+
+// Задача 55: Задайте двумерный массив. Напишите программу,
+// которая заменяет строки на столбцы. В случае, если это
+// невозможно, программа должна вывести сообщение для
+// пользователя.
+
+// void FillArray(int[,] array)
+// {
+//     for (int i = 0; i < array.GetLength(0); i++)
+//         for (int j = 0; j < array.GetLength(1); j++)
+//             array[i, j] = new Random().Next(10, 100);
+// }
+
+// void PrintArray(int[,] array)
+// {
+//     for (int i = 0; i < array.GetLength(0); i++)
+//     {
+//         for (int j = 0; j < array.GetLength(1); j++)
+//             System.Console.Write($"{array[i, j],3}    ");
+//         System.Console.WriteLine();
+//     }
+// }
+
+// void ReverseRowsAndCols(int[,] array)
+// {
+//     for (int i = 0; i < array.GetLength(0); i++)
+//     {
+//         for (int j = i; j < array.GetLength(1); j++)
+//         {
+//             (array[i, j], array[j, i]) = (array[j, i], array[i, j]);
+//         }
+//     }
+
+// }
+
+// System.Console.WriteLine("Введите количество строк:");
+// int rows = Convert.ToInt32(Console.ReadLine());
+// System.Console.WriteLine("Введите количество столбцов:");
+// int cols = Convert.ToInt32(Console.ReadLine());
+
+
+// int[,] array = new int[rows, cols];
+
+// FillArray(array);
+// PrintArray(array);
+// System.Console.WriteLine();
+// ReverseRowsAndCols(array);
+// PrintArray(array);
+
+
+// Задача 57: Составить частотный словарь элементов
+// двумерного массива. Частотный словарь содержит
+// информацию о том, сколько раз встречается элемент
+// входных данных.
+// в массиве случайные числа от 0 до 9
+// 1, 2, 3
+// 4, 6, 1
+// 2, 1, 6
+// 1 встречается 3 раза
+// 2 встречается 2 раз
+// 3 встречается 1 раз
+// 4 встречается 1 раз
+// 6 встречается 2 раза
+
+// void FillArray(int[,] array)
+// {
+//     for (int i = 0; i < array.GetLength(0); i++)
+//         for (int j = 0; j < array.GetLength(1); j++)
+//             array[i, j] = new Random().Next(0, 10);
+// }
+
+// void PrintArray(int[,] array)
+// {
+//     for (int i = 0; i < array.GetLength(0); i++)
+//     {
+//         for (int j = 0; j < array.GetLength(1); j++)
+//             System.Console.Write($"{array[i, j],3}    ");
+//         System.Console.WriteLine();
+//     }
+// }
+
+// void CountDigits(int[,] array)
+// {
+//     int number = 0;
+//     int result = 0;
+//     while (number < 10)
+//     {
+//         foreach (int item in array)
+//         {
+//             if (item == number) result++;
+//         }
+//         if (result > 0)
+//         {
+//             System.Console.WriteLine($"Цифра {number} встречается {result} раз.");
+//         }
+//             result = 0;
+//             number++;
+//     }
+// }
+
+
+// System.Console.WriteLine("Введите количество строк:");
+// int rows = Convert.ToInt32(Console.ReadLine());
+// System.Console.WriteLine("Введите количество столбцов:");
+// int cols = Convert.ToInt32(Console.ReadLine());
+
+
+// int[,] array = new int[rows, cols];
+
+// FillArray(array);
+// PrintArray(array);
+// CountDigits(array);
